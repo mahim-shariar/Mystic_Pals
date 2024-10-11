@@ -1,10 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background: linear-gradient(135deg, #0a0a23, #3a204b);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,5 +22,119 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Add the Sixtyfour Convergence font CSS class */
+.sixtyfour-convergence-unique {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "BLED" 0, "SCAN" 0, "XELA" 0, "YELA" 0;
+}
+.glow-text {
+  text-shadow: 0 0 10px #7ed6e8, 0 0 20px #3a5f8a;
+}
+
+.glow-text-vision {
+  text-shadow: 0 0 10px #1e3c72, 0 0 20px #2a5298;
+}
+
+/* components/VideoBanner.module.css */
+/* .bannerContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+} */
+
+.bannerVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire area */
+}
+
+.glass-effect {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  backdrop-filter: blur(10px); /* Apply background blur */
+}
+
+@keyframes glow-once {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(126, 214, 232, 0);
+    border-color: rgba(126, 214, 232, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(126, 214, 232, 0.8);
+    border-color: rgba(126, 214, 232, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px 2px rgba(126, 214, 232, 0.4);
+    border-color: rgba(126, 214, 232, 0.4);
+  }
+}
+
+.animate-glow-once {
+  animation: glow-once 1.5s ease-in-out forwards;
+}
+
+.hover\:glow-hover:hover {
+  box-shadow: 0 0 20px 5px rgba(126, 214, 232, 0.8) !important;
+  border-color: rgba(126, 214, 232, 0.8) !important;
+}
+
+/* Glowing scrollbar for the entire website */
+@layer utilities {
+  /* Webkit-based browsers (Chrome, Safari, etc.) */
+  ::-webkit-scrollbar {
+    width: 10px; /* Adjust width */
+    height: 10px; /* Adjust height for horizontal scrollbars */
+  }
+
+  /* Track of the scrollbar */
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(135deg, #0a0a23, #3a204b);
+  }
+
+  /* Thumb of the scrollbar (the part you drag) */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(126, 214, 232, 0.8); /* Main thumb color */
+    border-radius: 20px; /* Rounded corners for the thumb */
+    box-shadow: 0 0 10px 2px rgba(126, 214, 232, 0.8); /* Glowing effect */
+  }
+
+  /* Glowing effect intensifies on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(126, 214, 232, 1); /* Brighter color */
+    box-shadow: 0 0 15px 3px rgba(126, 214, 232, 1); /* Stronger glow */
+  }
+
+  /* For Firefox (and other modern browsers that support this) */
+  /* scrollbar-width: thin; Make the scrollbar thin */
+  /* scrollbar-color: rgba(126, 214, 232, 0.8) transparent; Thumb and track colors */
+}
+
+.vision-bg {
+  background-image: url("../assets/piclumenPokemon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Cover the background on mobile */
+  padding-bottom: 60px;
+  min-height: 100vh; /* Ensures the section takes up the full height on mobile */
+}
+
+/* Media query for desktop */
+@media (min-width: 768px) {
+  .vision-bg {
+    background-size: 100%; /* Set background to 100% width on desktop */
+    background-attachment: fixed; /* Fixed attachment for desktop */
   }
 }
